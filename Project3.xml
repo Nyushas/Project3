@@ -36,7 +36,7 @@
             <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)' if="full($Date)"/>
 
             <!-- Just response with text, date and time of a new reminder -->
-            <output value='Вот стоимость билета на "$Text", сеанс $Fmt в $Time'/>
+            <output value='Вот стоимость  билета на "$Text", сеанс $Fmt в $Time'/>
         </context>
     </input>
 </context>
