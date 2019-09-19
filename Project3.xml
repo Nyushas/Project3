@@ -1,5 +1,5 @@
 <context>
-    <input pattern="[* remind* [me]] { [[to] $Text] [$Date] [$Time] }">
+    <input pattern="[* стоимост* [me]] { [[to] $Text] [$Date] [$Time] }">
         <!-- Jump to the reminder creation if Text and Time have been provided -->
         <context id="reminder" if="full($Text) and full($Time)"/>
 
@@ -19,7 +19,7 @@
             <output value="Какого числа вы собираетесь на фильм?" if="empty($Date)"/>
 
             <!-- Or ask only for the Time if the Date was provided -->
-            <output value="Пожалуйста, скажите какого числа вы собираетесь в кино"/>
+            <output value="Пожалуйста, скажите какой сеанс вас интересует. Варианты: 16.30, 19.00, 20.30"/>
 
             <input>
                 <pattern value="* {(* $Time) [$Date]} *"/>
