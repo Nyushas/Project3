@@ -1,5 +1,5 @@
 <context>
-    <input pattern="[* стоимост* [me]] { [[to] $Text] [$Date] [$Time] }">
+    <input pattern="[* [*скажи* мне] (стоимост* | цен* | сколько стоит | почем) [билет]  ] { [[на] [фильм] $Text] [$Date] [$Time] }">
         <!-- Jump to the reminder creation if Text and Time have been provided -->
         <context id="reminder" if="full($Text) and full($Time)"/>
 
@@ -36,7 +36,7 @@
             <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)' if="full($Date)"/>
 
             <!-- Just response with text, date and time of a new reminder -->
-            <output value='OK, I will remind you "$Text" on $Fmt at $Time'/>
+            <output value='Вот стоимость билета на "$Text", сеанс $Fmt в $Time'/>
         </context>
     </input>
 </context>
