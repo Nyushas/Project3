@@ -5,7 +5,7 @@
 
         <!-- Ask for reminder text if it was not provided -->
         <context if="empty($Text)" modal="true"> <!-- This context is modal because any text must be interpreted as reminder text -->
-            <output value="What would you like me to remind you about?"/>
+            <output value="Какой фильм Вас интересует?"/>
 
             <input pattern="$Text">
                 <context id="reminder_time" if="empty($Time)"/> <!-- Ask for the Date and Time -->
