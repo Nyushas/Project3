@@ -1,7 +1,7 @@
 <context>
     <input pattern="* (стоимост*|цен*|сколько стоит|почем) [билет] {[[на] [фильм] $Text] [$Date] [$Time]}">
         <!-- Jump to the reminder creation if Text and Time have been provided -->
-        <context id="cost" if="full($Text) and full($Time)"/>
+        <context id="cost" if="full($Text) and full($Date) and full($Time)"/>
 
         <context if="empty($Text)" modal="true">
             <output value="Какой фильм Вас интересует?"/>
@@ -13,7 +13,7 @@
             </input>
         </context>
 
-        <context id="date" if="empty($Date)" modal="true">
+        <context id="date" if="empty($Date)">
             <output value="Какого числа вы собираетесь на фильм?"/>
             <input pattern="* $Date *">
                 <context id="date" if="empty($Date)"/>
@@ -22,7 +22,7 @@
             </input>
         </context>
 
-        <context id="time" if="empty($Time)" modal="true">
+        <context id="time" if="empty($Time)">
             <output value="В какое время вы собираетесь пойти?"/>
             <input pattern="* $Time *">
                 <context id="time" if="empty($Time)"/>
@@ -31,7 +31,7 @@
         </context>
         
         <context id="cost">
-            <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)' if="full($Date)"/>
+            <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)'"/>
             <output value="Сообщаю стоимость билета на $Text, сеанс $Fmt в $Time"/>
         </context>
     </input>
