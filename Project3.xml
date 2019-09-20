@@ -26,7 +26,7 @@
 
         <context id="cost">
             <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)' if="full($Date)"/>
-            <output value="Вот стоимость  билета на $Text, сеанс $Fmt в $Time"/>
+            <output value="Сообщаю стоимость билета на $Text, сеанс $Fmt в $Time"/>
         </context>
     </input>
 </context>
