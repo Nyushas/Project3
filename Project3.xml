@@ -13,7 +13,7 @@
             </input>
         </context>
 
-        <context id="date" if="empty($Date)">
+        <context id="date" if="empty($Date)" modal="true">
             <output value="Какого числа вы собираетесь на фильм?"/>
             <input pattern="* $Date *">
                 <context id="date" if="empty($Date)"/>
@@ -22,7 +22,7 @@
             </input>
         </context>
 
-        <context id="time" if="empty($Time)">
+        <context id="time" if="empty($Time)" modal="true">
             <output value="В какое время вы собираетесь пойти?"/>
             <input pattern="* $Time *">
                 <context id="time" if="empty($Time)"/>
