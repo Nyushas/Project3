@@ -7,23 +7,29 @@
             <output value="Какой фильм Вас интересует?"/>
 
             <input pattern="$Text">
+                <context id="date" if="empty($Date)"/>
+                <context id="time" if="empty($Time)"/>
+                <context id="cost"/>
+            </input>
+        </context>
+
+        <context id="date" if="empty($Date)">
+            <output value="Какого числа вы собираетесь на фильм?"/>
+            <input pattern value="* $Date *">
+                <context id="date" if="empty($Date)"/>
                 <context id="time" if="empty($Time)"/>
                 <context id="cost"/>
             </input>
         </context>
 
         <context id="time" if="empty($Time)">
-            <output value="Какого числа вы собираетесь на фильм?" if="empty($Date)"/>
-            <output value="Пожалуйста скажите какой сеанс вас интересует."/>
-            <input>
-                <pattern value="* {(* $Time) [$Date]} *"/>
-                <pattern value="* $Date *"/>
-
+            <output value="В какое время вы собираетесь пойти?"/>
+            <input pattern value="* $Time *">
                 <context id="time" if="empty($Time)"/>
                 <context id="cost"/>
             </input>
         </context>
-
+        
         <context id="cost">
             <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)' if="full($Date)"/>
             <output value="Сообщаю стоимость билета на $Text, сеанс $Fmt в $Time"/>
