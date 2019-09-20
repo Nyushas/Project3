@@ -31,7 +31,7 @@
         </context>
         
         <context id="cost">
-            <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)'"/>
+            <var name="Fmt" value='fmt($Date, "EEEE, MMMM dd", $req_lang)'/>
             <output value="Сообщаю стоимость билета на $Text, сеанс $Fmt в $Time"/>
         </context>
     </input>
