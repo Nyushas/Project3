@@ -15,7 +15,7 @@
 
         <context id="date" if="empty($Date)">
             <output value="Какого числа вы собираетесь на фильм?"/>
-            <input pattern value="* $Date *">
+            <input pattern="* $Date *">
                 <context id="date" if="empty($Date)"/>
                 <context id="time" if="empty($Time)"/>
                 <context id="cost"/>
@@ -24,7 +24,7 @@
 
         <context id="time" if="empty($Time)">
             <output value="В какое время вы собираетесь пойти?"/>
-            <input pattern value="* $Time *">
+            <input pattern="* $Time *">
                 <context id="time" if="empty($Time)"/>
                 <context id="cost"/>
             </input>
